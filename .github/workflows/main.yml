@@ -11,24 +11,24 @@ jobs:
       USER_EMAIL  : ken551113@gmail.com
       PUBLISH_DIR : ./dist
     runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-		  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-	    # install node.js
+      # install node.js
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-	    # Runs a single command using the runners shell
-	    - name: install dependencies
-	      run: npm install
-	
-	    # Runs a single command using the runners shell
-	    - name: try to build the project
-	      run: npm run build
+      # Runs a single command using the runners shell
+      - name: install dependencies
+        run: npm install
+
+      # Runs a single command using the runners shell
+      - name: try to build the project
+        run: npm run build
 
 	    - name: Commit files
 	      run: |
